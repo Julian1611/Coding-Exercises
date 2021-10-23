@@ -16,7 +16,7 @@ print("Hello, this is a test")
 
 # Task3
 # What is the number of observations in the dataset?
-print("Hello, this is another test")
+
 # Task4
 #What is the number of columns in the dataset?
 
