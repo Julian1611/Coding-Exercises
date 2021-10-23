@@ -10,7 +10,7 @@ users = pd.read_table('https://raw.githubusercontent.com/justmarkham/DAT8/master
 
 # Task1
 # See the first 25 entries
-print("Hello, this is a test")
+
 # Task2
 # See the last 10 entries
 
