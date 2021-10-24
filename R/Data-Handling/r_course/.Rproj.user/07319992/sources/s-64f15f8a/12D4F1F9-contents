@@ -1,0 +1,6 @@
+print("Hello World")
+print("Hello World")
+source("code/hello_world.R")
+source("../r_course/code/hello_world.R")
+getwd()
+getwd()
