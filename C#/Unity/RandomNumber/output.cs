@@ -8,34 +8,34 @@ public class output : MonoBehaviour {
 
     private void Awake()
     {
-        ausgabe = GetComponent<Text>();
+        out = GetComponent<Text>();
     }
 
 
     void Update () {
-		if (Zufallszahl.a)
+		if (RandomNumber.a)
         {
-            ausgabe.text = "1";
+            out.text = "1";
         }
-        else if (Zufallszahl.b)
+        else if (RandomNumber.b)
         {
-            ausgabe.text = "2";
+            out.text = "2";
         }
-        else if (Zufallszahl.c)
+        else if (RandomNumber.c)
         {
-            ausgabe.text = "3";
+            out.text = "3";
         }
-        else if (Zufallszahl.d)
+        else if (RandomNumber.d)
         {
-            ausgabe.text = "4";
+            out.text = "4";
         }
-        else if (Zufallszahl.e)
+        else if (RandomNumber.e)
         {
-            ausgabe.text = "5";
+            out.text = "5";
         }
-        else if (Zufallszahl.f)
+        else if (RandomNumber.f)
         {
-            ausgabe.text = "6";
+            out.text = "6";
         }
 	}
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Zufallszahl : MonoBehaviour {
+public class RandomNumber : MonoBehaviour {
 
     public int zahl;
     public int y = 0;
