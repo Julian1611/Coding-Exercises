@@ -40,64 +40,65 @@ import javax.swing.*;
 
 public class MyHangman
 {
-    public static void main(String[] args)
-    {
-	int count = 0;
-	int pos;
-	int countChar = 0;
-	String choice;
-	String words;
-	String guess;
+  public static void main(String[] args)
+  {
+  	int count = 0;
+  	int pos;
+  	int countChar = 0;
+  	String choice;
+  	String words;
+  	String guess;
 
-        // TODO code application logic here
-        // Sample test case for HangMan game engine
-        HangMan hm = new HangMan("My super cool game!");
-        
-	String phrase= JOptionPane.showInputDialog("Type a phrase: ");
-        hm.setPhrase(phrase, phrase.length);
-        //have a loop that goes until the user guesses the phrase
-        //should maybe also stop when six incorrect guesses are made
-      	while (true == true)
-      	{
-      		while ((choice = JOptionPane.showInputDialog("Guess a letter: ")).length() != 1);
-        	char charGuessed = choice.charAt(0);
+    // TODO code application logic here
+    // Sample test case for HangMan game engine
+    // Requires the HangMan class...where to find?
+    HangMan hm = new HangMan("My super cool game!");
 
-        	//check if the letter is in the phrase
-        	if(phrase.indexOf(charGuessed) >= 0)
-        	{
-        		//got the letter right so find out where all it appears and use
-			// guessedLetterRight as many times as needed
-			pos = phrase.indexOf(charGuessed);
+    String phrase= JOptionPane.showInputDialog("Type a phrase: ");
+    hm.setPhrase(phrase, phrase.length);
+    //have a loop that goes until the user guesses the phrase
+    //should maybe also stop when six incorrect guesses are made
+  	while (true)
+  	{
+  		while ((choice = JOptionPane.showInputDialog("Guess a letter: ")).length() != 1);
+    	char charGuessed = choice.charAt(0);
 
-			while(pos != -1)
-			{
-				countChar++;
-				hm.guessedLetterRight(choice, pos);
-				pos = phrase.indexOf(charGuessed, pos+1);
-			}
-			//get the user's guess and either use hm.guessedPhraseRight() or
-			//use hm.guessedPhraseWrong() depending if the guess was right or not
+    	//check if the letter is in the phrase
+    	if(phrase.indexOf(charGuessed) >= 0)
+    	{
+    		//got the letter right so find out where all it appears and use
+  			// guessedLetterRight as many times as needed
+  			pos = phrase.indexOf(charGuessed);
 
-			guess = JOptionPane.showInputDialog("Guess the phrase: ");
-			if (guess.equals(phrase))
-			{
-				hm.guessedPhraseRight();
-				System.out.println("correct guess");
-			}
-			else
-			{
-				hm.guessedPhraseWrong();
-				System.out.println("wrong guess");
-			}
-        	}
-        	else
-        	{
-        		//keep a count of how many wrong guesses
-        		count ++;
-        		hm.guessedLetterWrong(choice, count);
-        		System.out.println(count);
-        		//if count == 6 --> Game Over
-        	}
-      	}
-    }
+  			while(pos != -1)
+  			{
+  				countChar++;
+  				hm.guessedLetterRight(choice, pos);
+  				pos = phrase.indexOf(charGuessed, pos+1);
+  			}
+  			//get the user's guess and either use hm.guessedPhraseRight() or
+  			//use hm.guessedPhraseWrong() depending if the guess was right or not
+
+  			guess = JOptionPane.showInputDialog("Guess the phrase: ");
+  			if (guess.equals(phrase))
+  			{
+  				hm.guessedPhraseRight();
+  				System.out.println("correct guess");
+  			}
+  			else
+  			{
+  				hm.guessedPhraseWrong();
+  				System.out.println("wrong guess");
+  			}
+    	}
+    	else
+    	{
+    		//keep a count of how many wrong guesses
+    		count ++;
+    		hm.guessedLetterWrong(choice, count);
+    		System.out.println(count);
+    		//if count == 6 --> Game Over
+    	}
+  	}
+  }
 }

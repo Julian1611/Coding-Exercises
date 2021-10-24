@@ -1,10 +1,7 @@
 git_vaccinate()
-# no .DS_Store files
 .DS_Store
 */.DS_Store
 
-# needs to be changed
-# ignore all file extensions in R that aren't coding or data related (like .user)
 .Rproj.user
 .Rhistory
 .RData
