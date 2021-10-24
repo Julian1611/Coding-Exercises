@@ -17,7 +17,7 @@ long distanceRight; //in cm
 long distanceLeft;  //in cm
 
 // Create the motor shield object with the default I2C address
-Adafruit_MotorShield AFMS = Adafruit_MotorShield(); 
+Adafruit_MotorShield AFMS = Adafruit_MotorShield();
 
 // Select which 'port' M1, M2, M3 or M4.
 Adafruit_DCMotor *myMotor = AFMS.getMotor(1);
@@ -27,7 +27,7 @@ const int maxSpeed=100;
 
 void setup() 
 {
-  Serial.begin(9600);           // set up Serial library at 115200 bps
+  Serial.begin(9600);           // set up Serial library at 9600 bps
   Serial.println("Adafruit Motorshield v2 - DC Motor test!");
   //front
   pinMode(Echo1, INPUT);
@@ -40,13 +40,13 @@ void setup()
   pinMode(Trig3, OUTPUT);
 
   AFMS.begin();  // create with the default frequency 1.6KHz
-  
+
   // Set the speed to start, from 0 (off) to 255 (max speed)
   myMotor->setSpeed(maxSpeed);
   myMotor->run(RELEASE);
 
   myMotor2->setSpeed(maxSpeed);
-  myMotor2->run(RELEASE);  
+  myMotor2->run(RELEASE);
 
   //int coordinateArray[30][30]; //array fuer Koordinaten und die Information zu jedem einzelnen
 
@@ -57,10 +57,10 @@ void forward()
 {
   //default mode
   //WHITE WIRES OUTSIDE
-  myMotor->setSpeed(maxSpeed);  
+  myMotor->setSpeed(maxSpeed);
   myMotor->run(FORWARD);
 
-  myMotor2->setSpeed(maxSpeed);  
+  myMotor2->setSpeed(maxSpeed);
   myMotor2->run(FORWARD);
 
   Serial.println("Forward");
@@ -70,7 +70,7 @@ void stopMove()
 {
   //if wall, or black tile
   myMotor->run(RELEASE);
-  myMotor2->run(RELEASE); 
+  myMotor2->run(RELEASE);
 
   Serial.println("STOP");
 }
@@ -89,7 +89,7 @@ void left()
   //turn left (time must be tested)
   myMotor->run(FORWARD);
   myMotor2->run(BACKWARD);
-  
+
   Serial.println("Left");
   delay(3000);
 }
@@ -99,7 +99,7 @@ void right()
   //turn right (time must be tested)
   myMotor->run(BACKWARD);
   myMotor2->run(FORWARD);
-  
+
   Serial.println("Right");
   delay(3000);
 }
@@ -161,4 +161,3 @@ void loop() //needs to be changed, Tremaux-Alogrithm
     }
   }
 }
-
