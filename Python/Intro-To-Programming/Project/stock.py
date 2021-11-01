@@ -1,7 +1,11 @@
 import pdfplumber
+import sys
+import os
 
-statement = pdfplumber.open('/Statement of Securities Account.pdf')
+statement = pdfplumber.open(os.path.join(sys.path[0], "Statement of Securities Account.pdf"))
 
-text = statement.extract_text()
-
-print(text)
+pages = statement.pages
+for i,pg in enumerate(pages):
+    page = statement.pages[i]
+    text = page.extract_text()
+    print(text)
