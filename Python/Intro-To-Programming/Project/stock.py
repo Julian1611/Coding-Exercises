@@ -5,13 +5,6 @@ import pdfplumber
 import sys
 import os
 import re
-
-# declare all lists for program
-ISIN_list_page = []
-ISIN_list = []
-all_strings = []
-value = []
-money_value = []
     
 def read_traderepublic(name):
     # open pdf to work with in current folder
@@ -25,12 +18,12 @@ def get_pages_traderepublic(statement):
     return pages
 
 def get_isin_traderepublic(statement, pages):
+    ISIN_list_page = []
+    ISIN_list = []
     # enumerate through all pages of the document
     for i, pg in enumerate(pages):
         page = statement.pages[i]
         text = page.extract_text()
-        # extract all strings on current page page
-        all_strings = re.split("\s", text)
         # extract ISIN numbers on current page
         ISIN_list_page = re.findall("ISIN: [A-Z][A-Z].........[0-9]", text)
         for n in ISIN_list_page:
@@ -38,6 +31,9 @@ def get_isin_traderepublic(statement, pages):
     return ISIN_list
 
 def get_values_traderepublic(statement, pages):
+    all_strings = []
+    value = []
+    money_value = []
     for i, pg in enumerate(pages):
         page = statement.pages[i]
         text = page.extract_text()
